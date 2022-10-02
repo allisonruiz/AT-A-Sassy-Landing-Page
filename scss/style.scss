@@ -1,3 +1,7 @@
+@import 'mixins';
+@import 'config';
+@import 'btnConfig';
+
 
 * {
   box-sizing: border-box;
@@ -6,9 +10,14 @@
 }
 
 body {
-  background-color: $light-color;
   font-family: $font-stack;
   line-height: 1;
+
+  .h1{
+    background-color: $primary-color;
+    font-family: $font-stack;
+    border: $border ;
+  }
 }
 
 img {
@@ -20,7 +29,28 @@ a {
 }
 
 .hero {
-  // This is where the bulk of the SCSS styling needs to be done
+  @include set-bg($primary-color);
+  height: 600px;
+
+  nav{
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+
+  }
+
+  ul{
+    display: flex;
+    list-style-type: none;
+  }
+
+  li{
+    padding: 15px;
+  }
+
+  a{
+    color: text-color-picker($primary-color);
+  }
 
   // Take a look at the other files we've built already. How can they be useful here?
 
